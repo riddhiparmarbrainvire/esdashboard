@@ -1,6 +1,9 @@
 import React from "react";
 import ButtonFilter from "./ButtonFilter";
-import { Column, Columns } from "@/styles/dashboard.styles";
+import { Column, Columns, MainDivWrapper } from "@/styles/dashboard.styles";
+import Header from "./Header";
+import Graph from "./Graph";
+import Products from "./Products";
 // import {
 //   Chart as ChartJS,
 //   CategoryScale,
@@ -54,19 +57,14 @@ import { Column, Columns } from "@/styles/dashboard.styles";
 const Dashboard = () => {
   return (
     <>
-      <ButtonFilter />
+      <Header />
+      <MainDivWrapper>
+        <ButtonFilter />
+        <Graph />
+        <Products />
+      </MainDivWrapper>
+
       {/* <Line options={options} data={data} />; */}
-      {/* <Columns>
-        <Column size={4} flex={"flex"} flexDirection={"column"} marginTop={30}>
-          Hi 1
-        </Column>
-        <Column size={4} flex={"flex"} flexDirection={"column"} marginTop={30}>
-          Hi 2
-        </Column>
-        <Column size={4} flex={"flex"} flexDirection={"column"} marginTop={30}>
-          Hi 3
-        </Column>
-      </Columns> */}
     </>
   );
 };
