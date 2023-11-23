@@ -1,0 +1,182 @@
+[
+  {
+    "id": 1,
+    "name": "Product 1",
+    "image": "../product-images/skarmavild.svg",
+    "price": 974,
+    "type": "Pricerunner",
+    "percent": 10,
+    "cvrPercent": 49
+  },
+  {
+    "id": 2,
+    "name": "Product 2",
+    "image": "../product-images/prada-persona-eau-de-parfum-50-ml-1251-345-0050_1.jpg.svg",
+    "price": 389,
+    "type": "Lyco",
+    "percent": 5,
+    "cvrPercent": 35
+  },
+  {
+    "id": 3,
+    "name": "Product 3",
+    "image": "../product-images/ghd-curve-soft-curl-tong-1121-121-0000_1.jpg.svg",
+    "price": 996,
+    "type": "Pricerunner",
+    "percent": 5,
+    "cvrPercent": 41
+  },
+  {
+    "id": 4,
+    "name": "Product 4",
+    "image": "../product-images/deodoc-paris-to-persia-intimtval-100ml-1643-107-0100_1.png.svg",
+    "price": 259,
+    "type": "Lyco",
+    "percent": 20,
+    "cvrPercent": 33
+  },
+  {
+    "id": 5,
+    "name": "Product 5",
+    "image": "../product-images/skarmavild.svg",
+    "price": 617,
+    "type": "Pricerunner",
+    "percent": 20,
+    "cvrPercent": 43
+  },
+  {
+    "id": 6,
+    "name": "Product 6",
+    "image": "../product-images/prada-persona-eau-de-parfum-50-ml-1251-345-0050_1.jpg.svg",
+    "price": 273,
+    "type": "Lyco",
+    "percent": 4,
+    "cvrPercent": 35
+  },
+  {
+    "id": 7,
+    "name": "Product 7",
+    "image": "../product-images/ghd-curve-soft-curl-tong-1121-121-0000_1.jpg.svg",
+    "price": 493,
+    "type": "Pricerunner",
+    "percent": 11,
+    "cvrPercent": 12
+  },
+  {
+    "id": 8,
+    "name": "Product 8",
+    "image": "../product-images/deodoc-paris-to-persia-intimtval-100ml-1643-107-0100_1.png.svg",
+    "price": 647,
+    "type": "Lyco",
+    "percent": 7,
+    "cvrPercent": 23
+  },
+  {
+    "id": 9,
+    "name": "Product 9",
+    "image": "../product-images/deodoc-paris-to-persia-intimtval-100ml-1643-107-0100_1.png.svg",
+    "price": 791,
+    "type": "Pricerunner",
+    "percent": 2,
+    "cvrPercent": 21
+  },
+  {
+    "id": 10,
+    "name": "Product 10",
+    "image": "../product-images/skarmavild.svg",
+    "price": 15,
+    "type": "Lyco",
+    "percent": 10,
+    "cvrPercent": 47
+  },
+  {
+    "id": 11,
+    "name": "Product 11",
+    "image": "../product-images/prada-persona-eau-de-parfum-50-ml-1251-345-0050_1.jpg.svg",
+    "price": 11,
+    "type": "Pricerunner",
+    "percent": 10,
+    "cvrPercent": 22
+  },
+  {
+    "id": 12,
+    "name": "Product 12",
+    "image": "../product-images/deodoc-paris-to-persia-intimtval-100ml-1643-107-0100_1.png.svg",
+    "price": 439,
+    "type": "Lyco",
+    "percent": 7,
+    "cvrPercent": 14
+  },
+  {
+    "id": 13,
+    "name": "Product 13",
+    "image": "../product-images/ghd-curve-soft-curl-tong-1121-121-0000_1.jpg.svg",
+    "price": 791,
+    "type": "Pricerunner",
+    "percent": 18,
+    "cvrPercent": 14
+  },
+  {
+    "id": 14,
+    "name": "Product 14",
+    "image": "../product-images/skarmavild.svg",
+    "price": 301,
+    "type": "Lyco",
+    "percent": 18,
+    "cvrPercent": 32
+  },
+  {
+    "id": 15,
+    "name": "Product 15",
+    "image": "../product-images/prada-persona-eau-de-parfum-50-ml-1251-345-0050_1.jpg.svg",
+    "price": 995,
+    "type": "Pricerunner",
+    "percent": 7,
+    "cvrPercent": 12
+  },
+  {
+    "id": 16,
+    "name": "Product 16",
+    "image": "../product-images/deodoc-paris-to-persia-intimtval-100ml-1643-107-0100_1.png.svg",
+    "price": 633,
+    "type": "Lyco",
+    "percent": 15,
+    "cvrPercent": 48
+  },
+  {
+    "id": 17,
+    "name": "Product 17",
+    "image": "../product-images/ghd-curve-soft-curl-tong-1121-121-0000_1.jpg.svg",
+    "price": 872,
+    "type": "Pricerunner",
+    "percent": 10,
+    "cvrPercent": 20
+  },
+  {
+    "id": 18,
+    "name": "Product 18",
+    "image": "../product-images/deodoc-paris-to-persia-intimtval-100ml-1643-107-0100_1.png.svg",
+    "price": 488,
+    "type": "Lyco",
+    "percent": 0,
+    "cvrPercent": 39
+  },
+  {
+    "id": 19,
+    "name": "Product 19",
+    "image": "../product-images/skarmavild.svg",
+    "price": 497,
+    "type": "Pricerunner",
+    "percent": 14,
+    "cvrPercent": 29
+  },
+  {
+    "id": 20,
+    "name": "Product 20",
+    "image": "../product-images/prada-persona-eau-de-parfum-50-ml-1251-345-0050_1.jpg.svg",
+    "price": 608,
+    "type": "Lyco",
+    "percent": 12,
+    "cvrPercent": 11
+  }
+]
