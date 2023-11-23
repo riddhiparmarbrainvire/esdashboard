@@ -1,6 +1,31 @@
 import { DateInputField } from "@/styles/dashboard.styles";
 import React, { useState } from "react";
 import "react-datepicker/dist/react-datepicker.css";
+import styled from "styled-components";
+
+const Wrapper = styled.div`
+  .react-datepicker {
+    box-shadow: 3px 2px 11px rgb(0 0 0 / 30%);
+  }
+  .react-datepicker__day--selected,
+  .react-datepicker__day--in-selecting-range {
+    background-color: #34554a;
+  }
+  .react-datepicker__day--selected,
+  .react-datepicker__day--in-selecting-range,
+  .react-datepicker__day--in-range,
+  .react-datepicker__month-text--selected,
+  .react-datepicker__month-text--in-selecting-range,
+  .react-datepicker__month-text--in-range,
+  .react-datepicker__quarter-text--selected,
+  .react-datepicker__quarter-text--in-selecting-range,
+  .react-datepicker__quarter-text--in-range,
+  .react-datepicker__year-text--selected,
+  .react-datepicker__year-text--in-selecting-range,
+  .react-datepicker__year-text--in-range {
+    background-color: #34554a;
+  }
+`;
 
 const DateInput = ({
   yesterdaysSelectedDate,
@@ -44,24 +69,28 @@ const DateInput = ({
   return (
     <div>
       {option === "yesterday" && (
-        <DateInputField
-          selected={yesterdaysSelectedDate}
-          placeholderText={placeholder}
-          onChange={(date) => setYesterdaysSelectedDate(date)}
-          dateFormat="MM/dd"
-        />
+        <Wrapper>
+          <DateInputField
+            selected={yesterdaysSelectedDate}
+            placeholderText={placeholder}
+            onChange={(date) => setYesterdaysSelectedDate(date)}
+            dateFormat="d MMM"
+          />
+        </Wrapper>
       )}
 
       {option === "thisWeek" && (
-        <DateInputField
-          selected={startWeekDate}
-          placeholderText={placeholder}
-          onChange={handleDateChange}
-          startDate={startWeekDate}
-          endDate={endWeekDate}
-          selectsRange
-          dateFormat="MM/dd"
-        />
+        <Wrapper>
+          <DateInputField
+            selected={startWeekDate}
+            placeholderText={placeholder}
+            onChange={handleDateChange}
+            startDate={startWeekDate}
+            endDate={endWeekDate}
+            selectsRange
+            dateFormat="d MMM"
+          />
+        </Wrapper>
       )}
       <p>{formatDateWithOrdinal(yesterdaysSelectedDate)}</p>
     </div>
