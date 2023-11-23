@@ -10,6 +10,7 @@ const Wrapper = styled.div`
   .react-datepicker__day--selected,
   .react-datepicker__day--in-selecting-range {
     background-color: #34554a;
+    color: #fff;
   }
   .react-datepicker__day--selected,
   .react-datepicker__day--in-selecting-range,
@@ -24,6 +25,20 @@ const Wrapper = styled.div`
   .react-datepicker__year-text--in-selecting-range,
   .react-datepicker__year-text--in-range {
     background-color: #34554a;
+    color: #fff;
+    border-radius: 20px;
+  }
+
+  .react-datepicker__week--selected {
+    background-color: #34554a;
+    border-radius: 20px;
+    color: #fff;
+  }
+
+  .react-datepicker__week--keyboard-selected {
+    background-color: #34554a;
+    border-radius: 20px;
+    color: #fff;
   }
 `;
 
@@ -37,35 +52,13 @@ const DateInput = ({
   setEndWeekDate,
   option,
   handleDateChange,
+  endLastWeekDate,
+  startLastWeekDate,
+  setStartLastWeekDate,
+  setEndLastWeekDate,
+  startLastWMonthDate,
+  endLastMonthDate,
 }: any) => {
-  const formatDateWithOrdinal = (date: Date | null): string => {
-    if (!date) {
-      return "";
-    }
-
-    const day = date.getDate();
-    // console.log(day, "day"); 21
-    const month = date.toLocaleString("default", { month: "short" });
-    // console.log(month, "month"); Nov
-    const suffix = (day: number): string => {
-      if (day >= 11 && day <= 13) {
-        return "th";
-      }
-      switch (day % 10) {
-        case 1:
-          return "st";
-        case 2:
-          return "nd";
-        case 3:
-          return "rd";
-        default:
-          return "th";
-      }
-    };
-
-    return `${day}${suffix(day)} ${month}`;
-  };
-
   return (
     <div>
       {option === "yesterday" && (
@@ -92,7 +85,34 @@ const DateInput = ({
           />
         </Wrapper>
       )}
-      <p>{formatDateWithOrdinal(yesterdaysSelectedDate)}</p>
+
+      {option === "lastWeek" && (
+        <Wrapper>
+          <DateInputField
+            selected={startLastWeekDate}
+            placeholderText={placeholder}
+            onChange={handleDateChange}
+            startDate={startLastWeekDate}
+            endDate={endLastWeekDate}
+            selectsRange
+            dateFormat="d MMM"
+          />
+        </Wrapper>
+      )}
+
+      {option === "lastMonth" && (
+        <Wrapper>
+          <DateInputField
+            selected={startLastWMonthDate}
+            placeholderText={placeholder}
+            onChange={handleDateChange}
+            startDate={startLastWMonthDate}
+            endDate={endLastMonthDate}
+            selectsRange
+            dateFormat="d MMM"
+          />
+        </Wrapper>
+      )}
     </div>
   );
 };

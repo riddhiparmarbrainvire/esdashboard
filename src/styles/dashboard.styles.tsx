@@ -1,6 +1,18 @@
 import styled from "styled-components";
 import DatePicker from "react-datepicker";
 
+type ColumnProps = {
+  size?: number;
+  sizeSm?: number;
+  sizeMd?: number;
+  sizeLg?: number;
+  sizeXl?: number;
+  flex?: string;
+  flexDirection?: string;
+  marginTop?: number;
+  marginLeft?: number;
+};
+
 export const ButtonContainer = styled.div`
   background-color: #8daef2;
   /* display: flex;
@@ -50,4 +62,23 @@ export const DateInputField = styled(DatePicker)`
     opacity: 0.9;
     transform: scale(0.98);
   }
+`;
+
+export const Header = styled.div`
+  border: 2px solid red;
+`;
+
+export const Columns = styled.div`
+  height: 100%;
+  width: 100%;
+  display: flex;
+`;
+
+export const Column = styled.div<ColumnProps>`
+  flex: ${({ size }) => size};
+  flex-direction: ${({ flexDirection }) => flexDirection};
+  margin-top: ${({ marginTop }) => marginTop + `px`};
+  margin-left: ${({ marginLeft }) => marginLeft + `px`};
+  border: 1px solid red;
+  margin: 2px
 `;
