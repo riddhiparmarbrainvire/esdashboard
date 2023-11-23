@@ -8,6 +8,12 @@ const ButtonFilter = () => {
     useState<Date | null>(null);
   const [startWeekDate, setStartWeekDate] = useState<Date | null>(null);
   const [endWeekDate, setEndWeekDate] = useState<Date | null>(null);
+  const [startLastWeekDate, setStartLastWeekDate] = useState<Date | null>(null);
+  const [endLastWeekDate, setEndLastWeekDate] = useState<Date | null>(null);
+  const [startLastWMonthDate, setStartLastMonthDate] = useState<Date | null>(
+    null
+  );
+  const [endLastMonthDate, setEndLastMonthDate] = useState<Date | null>(null);
   const [option, setOption] = useState<string | null>(null);
 
   const handleButtonClick = (option: string) => {
@@ -20,26 +26,45 @@ const ButtonFilter = () => {
         setOption(option);
         break;
       case "thisWeek":
-        // Calculate the start of the current week (Sunday)
         const startOfWeek = new Date(currentDate);
         startOfWeek.setDate(currentDate.getDate() - currentDate.getDay());
 
-        // Calculate the end of the current week (Saturday)
         const endOfWeek = new Date(currentDate);
         endOfWeek.setDate(currentDate.getDate() + (6 - currentDate.getDay()));
 
-        // Update startWeekDate and endWeekDate state variables
         setStartWeekDate(startOfWeek);
         setEndWeekDate(endOfWeek);
         setOption(option);
         break;
       case "lastWeek":
-        // Logic to calculate start and end dates of the last week
-        // Update startWeekDate and endWeekDate state variables
+        const startOfLastWeek = new Date(currentDate);
+        startOfLastWeek.setDate(
+          currentDate.getDate() - currentDate.getDay() - 7
+        );
+
+        const endOfLastWeek = new Date(currentDate);
+        endOfLastWeek.setDate(currentDate.getDate() - currentDate.getDay() - 1);
+
+        setStartLastWeekDate(startOfLastWeek);
+        setEndLastWeekDate(endOfLastWeek);
+        setOption(option);
         break;
       case "lastMonth":
-        // Logic to calculate start and end dates of the last month
-        // Update startWeekDate and endWeekDate state variables
+        const firstDayOfLastMonth = new Date(
+          currentDate.getFullYear(),
+          currentDate.getMonth() - 1,
+          1
+        );
+
+        const lastDayOfLastMonth = new Date(
+          currentDate.getFullYear(),
+          currentDate.getMonth(),
+          0
+        );
+
+        setStartLastMonthDate(firstDayOfLastMonth);
+        setEndLastMonthDate(lastDayOfLastMonth);
+        setOption(option);
         break;
       default:
         break;
@@ -63,15 +88,27 @@ const ButtonFilter = () => {
         text="Yesterday"
         onClick={() => handleButtonClick("yesterday")}
       />
-      <SingleButton text="Last week" />
-      <SingleButton text="Last month" />
+      <SingleButton
+        text="Last week"
+        onClick={() => handleButtonClick("lastWeek")}
+      />
+      <SingleButton
+        text="Last month"
+        onClick={() => handleButtonClick("lastMonth")}
+      />
       <DateInput
         startWeekDate={startWeekDate}
         endWeekDate={endWeekDate}
+        startLastWeekDate={startLastWeekDate}
+        startLastWMonthDate={startLastWMonthDate}
+        endLastWeekDate={endLastWeekDate}
+        setStartLastWeekDate={setStartLastWeekDate}
+        setEndLastMonthDate={setEndLastMonthDate}
         yesterdaysSelectedDate={yesterdaysSelectedDate}
         setYesterdaysSelectedDate={setYesterdaysSelectedDate}
         setStartWeekDate={setStartWeekDate}
         setEndWeekDate={setEndWeekDate}
+        endLastMonthDate={endLastMonthDate}
         placeholder="Select Date"
         option={option}
         handleDateChange={handleDateChange}

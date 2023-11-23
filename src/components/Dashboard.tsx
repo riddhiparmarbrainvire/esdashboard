@@ -1,5 +1,6 @@
 import React from "react";
 import ButtonFilter from "./ButtonFilter";
+import { Column, Columns } from "@/styles/dashboard.styles";
 // import {
 //   Chart as ChartJS,
 //   CategoryScale,
@@ -55,6 +56,17 @@ const Dashboard = () => {
     <>
       <ButtonFilter />
       {/* <Line options={options} data={data} />; */}
+      {/* <Columns>
+        <Column size={4} flex={"flex"} flexDirection={"column"} marginTop={30}>
+          Hi 1
+        </Column>
+        <Column size={4} flex={"flex"} flexDirection={"column"} marginTop={30}>
+          Hi 2
+        </Column>
+        <Column size={4} flex={"flex"} flexDirection={"column"} marginTop={30}>
+          Hi 3
+        </Column>
+      </Columns> */}
     </>
   );
 };
