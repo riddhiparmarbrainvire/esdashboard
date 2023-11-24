@@ -38,6 +38,20 @@ export const ButtonContainer = styled.div`
   align-items: center;
   justify-content: right;
   margin-bottom: 15px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+
+  @media (max-width: 992px) {
+    justify-content: flex-start;
+  }
+
+  @media (max-width: 768px) {
+    justify-content: flex-start;
+  }
+
+  @media (max-width: 576px) {
+    justify-content: flex-start;
+  }
 `;
 
 export const Button = styled.button`
@@ -49,6 +63,7 @@ export const Button = styled.button`
   background-color: #fff;
   color: #4e4949;
   margin: 5px;
+  white-space: nowrap;
 
   &:hover {
     opacity: 0.9;
@@ -88,6 +103,30 @@ export const Columns = styled.div`
   height: 100%;
   width: 100%;
   display: flex;
+
+  @media (max-width: 1200px) {
+    display: flex;
+    flex-direction: column;
+    padding: 5% 0 5% 0;
+  }
+
+  @media (max-width: 992px) {
+    display: flex;
+    flex-direction: column;
+    padding: 5% 0 5% 0;
+  }
+
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    padding: 5% 0 5% 0;
+  }
+
+  @media (max-width: 576px) {
+    display: flex;
+    flex-direction: column;
+    padding: 5% 0 5% 0;
+  }
 `;
 
 export const Column = styled.div<ColumnProps>`
@@ -97,6 +136,26 @@ export const Column = styled.div<ColumnProps>`
   margin-left: ${({ marginLeft }) => marginLeft + `px`};
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   height: 50vh;
+
+  @media (max-width: 576px) {
+    flex: ${({ sizeSm }) => sizeSm};
+    border-radius: 0px;
+  }
+
+  @media (max-width: 768px) {
+    flex: ${({ sizeMd }) => sizeMd};
+    border-radius: 0px;
+  }
+
+  @media (max-width: 992px) {
+    flex: ${({ sizeLg }) => sizeLg};
+    border-radius: 0px;
+  }
+
+  @media (max-width: 1200px) {
+    flex: ${({ sizeXl }) => sizeXl};
+    border-radius: 0px;
+  }
 `;
 
 export const ProductHeading = styled.p`
@@ -104,6 +163,9 @@ export const ProductHeading = styled.p`
   padding: 20px;
   line-height: 26.5px;
   border-bottom: 0.8px solid #efefef;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 `;
 
 export const ProductContentDiv = styled.div`
@@ -111,6 +173,8 @@ export const ProductContentDiv = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  border-bottom: 1px solid #efefef;
+
   p {
     font-size: 18px;
     font-weight: 500;
@@ -135,6 +199,15 @@ export const ProductInnerContent = styled.div`
   }
 `;
 
+export const WidthDiv = styled.div`
+  width: 50%;
+  p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+`;
+
 export const NumberDiv = styled.div`
   background-color: rgba(244, 240, 236, 1);
   font-size: 13px;
@@ -144,7 +217,7 @@ export const NumberDiv = styled.div`
 `;
 
 export const ProductDetailsDiv = styled.div`
-  p {    
+  p {
     font-size: 18px;
     font-weight: 400;
     line-height: 21px;
