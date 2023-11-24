@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "name": "Bangerhead",
+    "price": 974
+  },
+  {
+    "id": 2,
+    "name": "Lyko",
+    "price": 389
+  },
+  {
+    "id": 3,
+    "name": "Ahlens",
+    "price": 996
+  },
+  {
+    "id": 4,
+    "name": "Meds",
+    "price": 259
+  },
+  {
+    "id": 5,
+    "name": "Kicks",
+    "price": 617
+  },
+  {
+    "id": 6,
+    "name": "Ahlens",
+    "price": 273
+  },
+  {
+    "id": 7,
+    "name": "Lyko",
+    "price": 493
+  },
+  {
+    "id": 8,
+    "name": "Kicks",
+    "price": 647
+  },
+  {
+    "id": 9,
+    "name": "Lyko",
+    "price": 79
+  },
+  {
+    "id": 10,
+    "name": "Ahlens",
+    "price": 15
+  },
+  {
+    "id": 11,
+    "name": "Bangerhead",
+    "price": 11
+  },
+  {
+    "id": 12,
+    "name": "Lyko",
+    "price": 439
+  },
+  {
+    "id": 13,
+    "name": "Ahlens",
+    "price": 791
+  },
+  {
+    "id": 14,
+    "name": "Kicks",
+    "price": 301
+  }
+]
