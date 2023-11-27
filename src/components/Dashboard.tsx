@@ -1,9 +1,10 @@
 import React from "react";
 import ButtonFilter from "./ButtonFilter";
 import { Column, Columns, MainDivWrapper } from "@/styles/dashboard.styles";
-import Header from "./Header";
 import Graph from "./Graph";
 import Products from "./Products";
+import LayoutA from "./LayoutA";
+import Header from "./Header";
 // import {
 //   Chart as ChartJS,
 //   CategoryScale,

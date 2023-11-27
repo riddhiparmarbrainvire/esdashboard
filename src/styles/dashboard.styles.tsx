@@ -13,8 +13,12 @@ type ColumnProps = {
   marginLeft?: number;
 };
 
-export const MainContentWrapper = styled.div`
-  max-height: 42vh;
+interface MainContentWrapperProps {
+  height?: any;
+}
+
+export const MainContentWrapper = styled.div<MainContentWrapperProps>`
+  max-height: ${({ height }) => (height ? height + `vh` : "50vh")};
   overflow-y: scroll;
 
   &::-webkit-scrollbar {
@@ -136,11 +140,7 @@ export const Column = styled.div<ColumnProps>`
   flex-direction: ${({ flexDirection }) => flexDirection};
   margin-left: ${({ marginLeft }) => marginLeft + `px`};
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  height: 57vh;
-
-  .topProducts {
-    background-color: red;
-  }
+  height: 64vh;
 
   @media (max-width: 576px) {
     flex: ${({ sizeSm }) => sizeSm};
@@ -174,11 +174,22 @@ export const ProductHeading = styled.p`
 `;
 
 export const ProductContentDiv = styled.div`
-  padding: 9px 0px 9px 0px;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   border-bottom: 1px solid #efefef;
+
+  &.topProducts {
+    padding: 4px 9px 4px 9px;
+  }
+
+  &.topPosts {
+    padding: 4px 9px 4px 9px;
+  }
+
+  &.topStories {
+    padding: 16px 0;
+  }
 
   p {
     font-size: 18px;
@@ -195,12 +206,13 @@ export const ProductInnerContent = styled.div`
   margin-top: 5px;
 
   span {
-    margin-left: 10px;
-    font-size: 18px;
+    margin-left: 6px;
+    font-size: 14px;
     font-weight: 400;
     line-height: 14px;
     letter-spacing: 0em;
     text-align: left;
+    color: rgba(58, 58, 58, 1);
   }
 `;
 
@@ -228,5 +240,25 @@ export const ProductDetailsDiv = styled.div`
     line-height: 21px;
     letter-spacing: 0em;
     text-align: right;
+    font-weight: 500;
   }
+
+  span {
+    font-size: 14px;
+  }
+`;
+
+export const TabButtonWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+export const DetailPageWrapper = styled.div`
+  margin-right: auto;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  margin-left: auto;
+  width: 75%;
+  height: 76.5vh;
+  border: 2px dotted magenta;
 `;

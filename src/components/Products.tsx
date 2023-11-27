@@ -4,6 +4,7 @@ import ProductContent from "./ProductContent";
 import topProductsData from "../../TopProductData.json";
 import topPostsData from "../../TopPostsData.json";
 import topStoresData from "../../TopStoresData.json";
+import { IoIosArrowForward } from "react-icons/io";
 
 const Products = () => {
   return (
@@ -16,9 +17,9 @@ const Products = () => {
           sizeSm={12}
           flex={"flex"}
           flexDirection={"column"}
-          className="topProducts"
         >
           <ProductContent
+            icon={<IoIosArrowForward />}
             productTabHeading="Top Products"
             topProductsData={topProductsData}
           />
@@ -31,9 +32,9 @@ const Products = () => {
           flex={"flex"}
           flexDirection={"column"}
           marginLeft={15}
-          className="topPosts"
         >
           <ProductContent
+            icon={<IoIosArrowForward />}
             productTabHeading="Top Posts"
             topProductsData={topPostsData}
           />
@@ -46,9 +47,9 @@ const Products = () => {
           flex={"flex"}
           flexDirection={"column"}
           marginLeft={15}
-          className="topStores"
         >
           <ProductContent
+            icon={<IoIosArrowForward />}
             productTabHeading="Top Stores"
             topProductsData={topStoresData}
           />

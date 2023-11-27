@@ -11,10 +11,13 @@ import Image from "next/image";
 import React from "react";
 import image from "../../public/productimg/curvsoftcurvlong.svg";
 import { IoIosArrowForward } from "react-icons/io";
+import Link from "next/link";
 
 interface MyComponentProps {
-  productTabHeading: string;
+  productTabHeading?: string;
+  icon?: any;
   topProductsData: Product[];
+  height?: any;
 }
 
 interface Product {
@@ -31,12 +34,39 @@ const ProductContent: React.FC<MyComponentProps> = (props) => {
   return (
     <>
       <ProductHeading>
-        {props.productTabHeading} <IoIosArrowForward />
+        {props.productTabHeading}
+        <Link
+          href={
+            props.productTabHeading === "Top Products"
+              ? "/topProducts"
+              : props.productTabHeading === "Top Posts"
+              ? "/topPosts"
+              : props.productTabHeading === "Top Stores"
+              ? "/topStories"
+              : ""
+          }
+        >
+          {props.icon}
+        </Link>
       </ProductHeading>
 
-      <MainContentWrapper>
+      <MainContentWrapper
+        className="height-for-detail-page"
+        height={props.height}
+      >
         {props.topProductsData.map((topProduct) => (
-          <ProductContentDiv key={topProduct.id}>
+          <ProductContentDiv
+            key={topProduct.id}
+            className={
+              props.productTabHeading === "Top Products"
+                ? "topProducts"
+                : props.productTabHeading === "Top Posts"
+                ? "topPosts"
+                : props.productTabHeading === "Top Stores"
+                ? " topStories"
+                : ""
+            }
+          >
             {props.productTabHeading === "Top Stores" ? (
               ""
             ) : (
