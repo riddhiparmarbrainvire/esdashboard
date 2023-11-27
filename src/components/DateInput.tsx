@@ -43,76 +43,23 @@ const Wrapper = styled.div`
 `;
 
 const DateInput = ({
-  yesterdaysSelectedDate,
-  setYesterdaysSelectedDate,
   placeholder,
-  startWeekDate,
-  endWeekDate,
-  setStartWeekDate,
-  setEndWeekDate,
-  option,
-  handleDateChange,
-  endLastWeekDate,
-  startLastWeekDate,
-  setStartLastWeekDate,
-  setEndLastWeekDate,
-  startLastWMonthDate,
-  endLastMonthDate,
-}: any) => {
+  selectedDateRange,
+}: {
+  placeholder: string;
+  selectedDateRange: { start: Date | null; end: Date | null };
+}) => {
   return (
     <div>
-      {option === "yesterday" && (
-        <Wrapper>
-          <DateInputField
-            selected={yesterdaysSelectedDate}
-            placeholderText={placeholder}
-            onChange={(date) => setYesterdaysSelectedDate(date)}
-            dateFormat="d MMM"
-          />
-        </Wrapper>
-      )}
-
-      {option === "thisWeek" && (
-        <Wrapper>
-          <DateInputField
-            selected={startWeekDate}
-            placeholderText={placeholder}
-            onChange={handleDateChange}
-            startDate={startWeekDate}
-            endDate={endWeekDate}
-            selectsRange
-            dateFormat="d MMM"
-          />
-        </Wrapper>
-      )}
-
-      {option === "lastWeek" && (
-        <Wrapper>
-          <DateInputField
-            selected={startLastWeekDate}
-            placeholderText={placeholder}
-            onChange={handleDateChange}
-            startDate={startLastWeekDate}
-            endDate={endLastWeekDate}
-            selectsRange
-            dateFormat="d MMM"
-          />
-        </Wrapper>
-      )}
-
-      {option === "lastMonth" && (
-        <Wrapper>
-          <DateInputField
-            selected={startLastWMonthDate}
-            placeholderText={placeholder}
-            onChange={handleDateChange}
-            startDate={startLastWMonthDate}
-            endDate={endLastMonthDate}
-            selectsRange
-            dateFormat="d MMM"
-          />
-        </Wrapper>
-      )}
+      <DateInputField
+        selected={selectedDateRange.start}
+        placeholderText={placeholder}
+        onChange={(date) => console.log(date)}
+        startDate={selectedDateRange.start}
+        endDate={selectedDateRange.end}
+        selectsRange
+        dateFormat="d MMM"
+      />
     </div>
   );
 };
