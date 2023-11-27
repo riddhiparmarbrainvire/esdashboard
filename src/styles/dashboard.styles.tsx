@@ -14,7 +14,7 @@ type ColumnProps = {
 };
 
 export const MainContentWrapper = styled.div`
-  max-height: 39vh;
+  max-height: 42vh;
   overflow-y: scroll;
 
   &::-webkit-scrollbar {
@@ -80,6 +80,7 @@ export const DateInputField = styled(DatePicker)`
   background-color: #fff;
   color: #4e4949;
   margin: 5px;
+  width: 185px;
 
   &:focus {
     border: none;
@@ -103,6 +104,7 @@ export const Columns = styled.div`
   height: 100%;
   width: 100%;
   display: flex;
+  padding-bottom: 8%;
 
   @media (max-width: 1200px) {
     display: flex;
@@ -132,10 +134,13 @@ export const Columns = styled.div`
 export const Column = styled.div<ColumnProps>`
   flex: ${({ size }) => size};
   flex-direction: ${({ flexDirection }) => flexDirection};
-  margin-top: ${({ marginTop }) => marginTop + `px`};
   margin-left: ${({ marginLeft }) => marginLeft + `px`};
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  height: 50vh;
+  height: 57vh;
+
+  .topProducts {
+    background-color: red;
+  }
 
   @media (max-width: 576px) {
     flex: ${({ sizeSm }) => sizeSm};
@@ -169,7 +174,7 @@ export const ProductHeading = styled.p`
 `;
 
 export const ProductContentDiv = styled.div`
-  padding: 17px 0px 17px 0px;
+  padding: 9px 0px 9px 0px;
   display: flex;
   align-items: center;
   justify-content: space-evenly;

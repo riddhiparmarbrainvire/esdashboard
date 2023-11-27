@@ -4,16 +4,23 @@ import DateInput from "./DateInput";
 import { ButtonContainer } from "@/styles/dashboard.styles";
 
 const ButtonFilter = () => {
-  const [yesterdaysSelectedDate, setYesterdaysSelectedDate] =
-    useState<Date | null>(null);
-  const [startWeekDate, setStartWeekDate] = useState<Date | null>(null);
-  const [endWeekDate, setEndWeekDate] = useState<Date | null>(null);
-  const [startLastWeekDate, setStartLastWeekDate] = useState<Date | null>(null);
-  const [endLastWeekDate, setEndLastWeekDate] = useState<Date | null>(null);
-  const [startLastWMonthDate, setStartLastMonthDate] = useState<Date | null>(
-    null
-  );
-  const [endLastMonthDate, setEndLastMonthDate] = useState<Date | null>(null);
+  // const [yesterdaysSelectedDate, setYesterdaysSelectedDate] =
+  //   useState<Date | null>(null);
+  // const [startWeekDate, setStartWeekDate] = useState<Date | null>(null);
+  // const [endWeekDate, setEndWeekDate] = useState<Date | null>(null);
+  // const [startLastWeekDate, setStartLastWeekDate] = useState<Date | null>(null);
+  // const [endLastWeekDate, setEndLastWeekDate] = useState<Date | null>(null);
+  // const [startLastWMonthDate, setStartLastMonthDate] = useState<Date | null>(
+  //   null
+  // );
+  // const [endLastMonthDate, setEndLastMonthDate] = useState<Date | null>(null);
+
+  const [selectedOption, setSelectedOption] = useState<string | null>(null);
+  const [selectedDateRange, setSelectedDateRange] = useState<{
+    start: Date | null;
+    end: Date | null;
+  }>({ start: null, end: null });
+
   const [option, setOption] = useState<string | null>(null);
 
   const handleButtonClick = (option: string) => {
@@ -22,7 +29,11 @@ const ButtonFilter = () => {
     switch (option) {
       case "yesterday":
         var yesterday = new Date(Date.now() - 864e5);
-        setYesterdaysSelectedDate(yesterday);
+
+        setSelectedDateRange({
+          start: yesterday,
+          end: yesterday,
+        });
         setOption(option);
         break;
       case "thisWeek":
@@ -32,8 +43,7 @@ const ButtonFilter = () => {
         const endOfWeek = new Date(currentDate);
         endOfWeek.setDate(currentDate.getDate() + (6 - currentDate.getDay()));
 
-        setStartWeekDate(startOfWeek);
-        setEndWeekDate(endOfWeek);
+        setSelectedDateRange({ start: startOfWeek, end: endOfWeek });
         setOption(option);
         break;
       case "lastWeek":
@@ -45,8 +55,10 @@ const ButtonFilter = () => {
         const endOfLastWeek = new Date(currentDate);
         endOfLastWeek.setDate(currentDate.getDate() - currentDate.getDay() - 1);
 
-        setStartLastWeekDate(startOfLastWeek);
-        setEndLastWeekDate(endOfLastWeek);
+        setSelectedDateRange({
+          start: startOfLastWeek,
+          end: endOfLastWeek,
+        });
         setOption(option);
         break;
       case "lastMonth":
@@ -62,19 +74,14 @@ const ButtonFilter = () => {
           0
         );
 
-        setStartLastMonthDate(firstDayOfLastMonth);
-        setEndLastMonthDate(lastDayOfLastMonth);
+        setSelectedDateRange({
+          start: firstDayOfLastMonth,
+          end: lastDayOfLastMonth,
+        });
         setOption(option);
         break;
       default:
         break;
-    }
-  };
-
-  const handleDateChange = (dates: [Date | null, Date | null] | null) => {
-    if (dates) {
-      setStartWeekDate(dates[0]);
-      setEndWeekDate(dates[1]);
     }
   };
 
@@ -97,21 +104,8 @@ const ButtonFilter = () => {
         onClick={() => handleButtonClick("lastMonth")}
       />
       <DateInput
-        startWeekDate={startWeekDate}
-        endWeekDate={endWeekDate}
-        startLastWeekDate={startLastWeekDate}
-        startLastWMonthDate={startLastWMonthDate}
-        endLastWeekDate={endLastWeekDate}
-        setStartLastWeekDate={setStartLastWeekDate}
-        setEndLastMonthDate={setEndLastMonthDate}
-        yesterdaysSelectedDate={yesterdaysSelectedDate}
-        setYesterdaysSelectedDate={setYesterdaysSelectedDate}
-        setStartWeekDate={setStartWeekDate}
-        setEndWeekDate={setEndWeekDate}
-        endLastMonthDate={endLastMonthDate}
+        selectedDateRange={selectedDateRange}
         placeholder="Select Date"
-        option={option}
-        handleDateChange={handleDateChange}
       />
     </ButtonContainer>
   );

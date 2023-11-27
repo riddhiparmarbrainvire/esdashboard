@@ -16,7 +16,7 @@ const Products = () => {
           sizeSm={12}
           flex={"flex"}
           flexDirection={"column"}
-          marginTop={10}
+          className="topProducts"
         >
           <ProductContent
             productTabHeading="Top Products"
@@ -30,8 +30,8 @@ const Products = () => {
           sizeSm={12}
           flex={"flex"}
           flexDirection={"column"}
-          marginTop={10}
           marginLeft={15}
+          className="topPosts"
         >
           <ProductContent
             productTabHeading="Top Posts"
@@ -45,8 +45,8 @@ const Products = () => {
           sizeSm={12}
           flex={"flex"}
           flexDirection={"column"}
-          marginTop={10}
           marginLeft={15}
+          className="topStores"
         >
           <ProductContent
             productTabHeading="Top Stores"
