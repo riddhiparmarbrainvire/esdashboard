@@ -32,6 +32,7 @@ const Products = () => {
           flex={"flex"}
           flexDirection={"column"}
           marginLeft={15}
+          marginTop={5}
         >
           <ProductContent
             icon={<IoIosArrowForward />}
@@ -47,6 +48,7 @@ const Products = () => {
           flex={"flex"}
           flexDirection={"column"}
           marginLeft={15}
+          marginTop={5}
         >
           <ProductContent
             icon={<IoIosArrowForward />}
