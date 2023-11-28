@@ -34,7 +34,7 @@ export const MainDivWrapper = styled.div`
   margin-left: auto;
   margin-right: auto;
   width: 80%;
-  height: 100vh;
+  height: 130vh;
 `;
 
 export const ButtonContainer = styled.div`
@@ -63,11 +63,12 @@ export const Button = styled.button`
   border: 1px solid #efefef;
   cursor: pointer;
   font-size: 14px;
-  padding: 10px 36px;
+  width: auto;
   background-color: #fff;
   color: #4e4949;
   margin: 5px;
   white-space: nowrap;
+  padding: 10px;
 
   &:hover {
     opacity: 0.9;
@@ -80,11 +81,10 @@ export const DateInputField = styled(DatePicker)`
   border: 1px solid #efefef;
   cursor: pointer;
   font-size: 14px;
-  padding: 10px 36px;
   background-color: #fff;
   color: #4e4949;
-  margin: 5px;
-  width: 185px;
+  margin-right: 12px;
+  padding: 10px;
 
   &:focus {
     border: none;
@@ -108,7 +108,6 @@ export const Columns = styled.div`
   height: 100%;
   width: 100%;
   display: flex;
-  padding-bottom: 8%;
 
   @media (max-width: 1200px) {
     display: flex;
@@ -141,15 +140,20 @@ export const Column = styled.div<ColumnProps>`
   margin-left: ${({ marginLeft }) => marginLeft + `px`};
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   height: 64vh;
+  min-width: 31%;
 
   @media (max-width: 576px) {
     flex: ${({ sizeSm }) => sizeSm};
     border-radius: 0px;
+    margin-left: 0;
+    margin-top: ${({ marginTop }) => marginTop + `%`};
   }
 
   @media (max-width: 768px) {
     flex: ${({ sizeMd }) => sizeMd};
     border-radius: 0px;
+    margin-left: 0;
+    margin-top: ${({ marginTop }) => marginTop + `%`};
   }
 
   @media (max-width: 992px) {
@@ -180,30 +184,29 @@ export const ProductContentDiv = styled.div`
   border-bottom: 1px solid #efefef;
 
   &.topProducts {
-    padding: 4px 9px 4px 9px;
+    padding: 5px 14px 5px 14px;
   }
 
   &.topPosts {
-    padding: 4px 9px 4px 9px;
+    padding: 5px 14px 5px 14px;
   }
 
   &.topStories {
-    padding: 16px 0;
+    padding: 19px 0;
   }
 
-  p {
+  /* p {
     font-size: 18px;
     font-weight: 500;
     line-height: 21px;
     letter-spacing: 0em;
     text-align: left;
-  }
+  } */
 `;
 
 export const ProductInnerContent = styled.div`
   display: flex;
   align-items: center;
-  margin-top: 5px;
 
   span {
     margin-left: 6px;
@@ -218,7 +221,9 @@ export const ProductInnerContent = styled.div`
 
 export const WidthDiv = styled.div`
   width: 50%;
+
   p {
+    font-size: 14px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -227,15 +232,18 @@ export const WidthDiv = styled.div`
 
 export const NumberDiv = styled.div`
   background-color: rgba(244, 240, 236, 1);
-  font-size: 13px;
-  padding: 2.09px, 4.17px, 2.09px, 4.17px;
-  border-radius: 2.78px;
-  gap: 5.58px;
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  color: #3a3a3a;
+  padding: 0.3rem 0;
+  white-space: nowrap;
 `;
 
 export const ProductDetailsDiv = styled.div`
   p {
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 400;
     line-height: 21px;
     letter-spacing: 0em;
@@ -244,7 +252,7 @@ export const ProductDetailsDiv = styled.div`
   }
 
   span {
-    font-size: 14px;
+    font-size: 12px;
   }
 `;
 
@@ -256,9 +264,39 @@ export const TabButtonWrapper = styled.div`
 
 export const DetailPageWrapper = styled.div`
   margin-right: auto;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   margin-left: auto;
   width: 75%;
   height: 76.5vh;
-  border: 2px dotted magenta;
+`;
+
+export const ChildrenWrapper = styled.div`
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+`;
+
+export const TabWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  margin-bottom: 15px;
+
+  &::-webkit-scrollbar {
+    height: 5px;
+    border-radius: 5px;
+    background-color: lightgray;
+  }
+
+  /* @media (max-width: 992px) {
+    justify-content: flex-start;
+  }
+
+  @media (max-width: 768px) {
+    justify-content: flex-start;
+  }
+
+  @media (max-width: 576px) {
+    justify-content: flex-start;
+  } */
 `;

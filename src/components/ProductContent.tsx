@@ -82,7 +82,10 @@ const ProductContent: React.FC<MyComponentProps> = (props) => {
               <p>{topProduct.name}</p>
               <ProductInnerContent>
                 {props.productTabHeading === "Top Products" ? (
-                  <NumberDiv>{topProduct.percent}%</NumberDiv>
+                  <NumberDiv>
+                    {topProduct.percent}
+                    {"%" ? "%" : "SEK / Click"}
+                  </NumberDiv>
                 ) : (
                   ""
                 )}
@@ -94,7 +97,7 @@ const ProductContent: React.FC<MyComponentProps> = (props) => {
             <ProductDetailsDiv>
               <p>SEK {topProduct.price}</p>
               {props.productTabHeading === "Top Products" ? (
-                <span>CVR {topProduct.cvrPercent}% </span>
+                <span>CVR {topProduct.cvrPercent}%</span>
               ) : (
                 ""
               )}
