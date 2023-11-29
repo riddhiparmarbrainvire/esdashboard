@@ -40,6 +40,7 @@ const TopProducts = () => {
                     topProductsData={topProductsData}
                     productTabHeading="Top Products"
                     height={65}
+                    border={2}
                   />
                 </>
               )}

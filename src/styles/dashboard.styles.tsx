@@ -13,20 +13,6 @@ type ColumnProps = {
   marginLeft?: number;
 };
 
-interface MainContentWrapperProps {
-  height?: any;
-}
-
-export const MainContentWrapper = styled.div<MainContentWrapperProps>`
-  max-height: ${({ height }) => (height ? height + `vh` : "50vh")};
-  overflow-y: scroll;
-
-  &::-webkit-scrollbar {
-    width: 1px;
-    background: #f1f1f1;
-  }
-`;
-
 export const Wrapper = styled.div`
   background-color: #8daef2;
 `;
@@ -42,8 +28,6 @@ export const ButtonContainer = styled.div`
   align-items: center;
   justify-content: right;
   margin-bottom: 15px;
-  flex-wrap: nowrap;
-  overflow-x: auto;
 
   @media (max-width: 992px) {
     justify-content: flex-start;
@@ -55,6 +39,21 @@ export const ButtonContainer = styled.div`
 
   @media (max-width: 576px) {
     justify-content: flex-start;
+  }
+
+  @media (min-width: 1200px) {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  }
+
+  /* @media (min-width: 1449px) {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  } */
+
+  @media (min-width: 1449px) and (max-width: 320px) {
+    flex-wrap: nowrap;
+    overflow-x: auto;
   }
 `;
 
@@ -169,18 +168,17 @@ export const Column = styled.div<ColumnProps>`
 
 export const ProductHeading = styled.p`
   font-size: 22px;
-  padding: 20px;
+  padding: 24px 26px 20px 33px;
   line-height: 26.5px;
   border-bottom: 0.8px solid #efefef;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  font-family: var(--Strawford-Bold);
 `;
 
 export const ProductContentDiv = styled.div`
   display: flex;
-  align-items: center;
-  justify-content: space-evenly;
   border-bottom: 1px solid #efefef;
 
   &.topProducts {
@@ -194,19 +192,12 @@ export const ProductContentDiv = styled.div`
   &.topStories {
     padding: 19px 0;
   }
-
-  /* p {
-    font-size: 18px;
-    font-weight: 500;
-    line-height: 21px;
-    letter-spacing: 0em;
-    text-align: left;
-  } */
 `;
 
-export const ProductInnerContent = styled.div`
+export const ProductInnerContent = styled.span`
   display: flex;
   align-items: center;
+  margin-top: 4%;
 
   span {
     margin-left: 6px;
@@ -216,7 +207,22 @@ export const ProductInnerContent = styled.div`
     letter-spacing: 0em;
     text-align: left;
     color: rgba(58, 58, 58, 1);
+    font-family: var(--Strawford-Bold);
   }
+
+  &.topStories {
+    span {
+      display: none;
+    }
+  }
+`;
+
+export const ImageContentDiv = styled.div`
+  display: flex;
+`;
+
+export const FlexDiv = styled.div`
+  display: flex;
 `;
 
 export const WidthDiv = styled.div`
@@ -227,6 +233,8 @@ export const WidthDiv = styled.div`
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    /* font-family: var(--Strawford-Bold); */
+    font-family: "StrawfordBold";
   }
 `;
 
@@ -237,22 +245,23 @@ export const NumberDiv = styled.div`
   font-weight: 400;
   line-height: normal;
   color: #3a3a3a;
-  padding: 0.3rem 0;
+  padding: 1% 1%;
   white-space: nowrap;
 `;
 
 export const ProductDetailsDiv = styled.div`
   p {
-    font-size: 14px;
-    font-weight: 400;
+    font-size: 12px;
     line-height: 21px;
     letter-spacing: 0em;
     text-align: right;
-    font-weight: 500;
+    font-family: "StrawfordBoldItalic";
+    /* font-family: var(--Strawford-Bold); */
+    /* font-weight: bold; */
   }
 
   span {
-    font-size: 12px;
+    font-size: 10px;
   }
 `;
 
@@ -300,3 +309,96 @@ export const TabWrapper = styled.div`
     justify-content: flex-start;
   } */
 `;
+
+// product css new
+interface MainContentWrapperProps {
+  height?: any;
+}
+
+export const MainContentWrapper = styled.div<MainContentWrapperProps>`
+  max-height: ${({ height }) => (height ? height + `vh` : "51vh")};
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    width: 1px;
+    background: #f1f1f1;
+  }
+`;
+
+// export const ProductContainer = styled.div`
+//   /* border: 2px dotted green; */
+// `;
+
+// export const ImageAndProductNameDiv = styled.div`
+//   display: flex;
+//   align-items: center;
+// `;
+
+// export const ImageDiv = styled.div`
+//   margin-right: 10px;
+// `;
+
+// export const AboutProduct = styled.div`
+//   span {
+//     font-family: Strawford;
+//     font-size: 12px;
+//     font-weight: 400;
+//     line-height: 14px;
+//     letter-spacing: 0em;
+//     text-align: left;
+//   }
+// `;
+
+// export const PercentageDiv = styled.div`
+//   display: flex;
+//   align-items: center;
+
+//   span {
+//     background: rgba(244, 240, 236, 1);
+//     border-radius: 5px;
+//     padding: 3px;
+//     margin-right: 6px;
+//   }
+// `;
+
+// export const PriceDetails = styled.div`
+//   p {
+//     font-family: Strawford;
+//     font-size: 14px;
+//     font-weight: 500;
+//     line-height: 21px;
+//     letter-spacing: 0em;
+//     text-align: left;
+//   }
+
+//   span {
+//     font-family: Strawford;
+//     font-size: 12px;
+//     font-weight: 400;
+//     line-height: 14px;
+//     letter-spacing: 0em;
+//     text-align: left;
+//   }
+// `;
+
+// export const ProductDetailsDiv = styled.div`
+//   width: 50%;
+
+//   p {
+//     font-family: Strawford;
+//     font-size: 14px;
+//     font-weight: 500;
+//     line-height: 21px;
+//     letter-spacing: 0em;
+//     text-align: left;
+//   }
+// `;
+
+// export const FlexWrapperDiv = styled.div`
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-between;
+//   padding: 5px 20px 5px 20px;
+//   border-bottom: 1px solid #efefef;
+// `;
+// product css end
