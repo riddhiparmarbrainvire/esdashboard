@@ -13,20 +13,6 @@ type ColumnProps = {
   marginLeft?: number;
 };
 
-interface MainContentWrapperProps {
-  height?: any;
-}
-
-export const MainContentWrapper = styled.div<MainContentWrapperProps>`
-  max-height: ${({ height }) => (height ? height + `vh` : "50vh")};
-  overflow-y: scroll;
-
-  &::-webkit-scrollbar {
-    width: 1px;
-    background: #f1f1f1;
-  }
-`;
-
 export const Wrapper = styled.div`
   background-color: #8daef2;
 `;
@@ -37,13 +23,16 @@ export const MainDivWrapper = styled.div`
   height: 130vh;
 `;
 
-export const ButtonContainer = styled.div`
+interface ButtonContainerProps {
+  scroll?: boolean;
+}
+
+export const ButtonContainer = styled.div<ButtonContainerProps>`
   display: flex;
   align-items: center;
   justify-content: right;
   margin-bottom: 15px;
-  flex-wrap: nowrap;
-  overflow-x: auto;
+  overflow-x: ${({ scroll }) => (scroll ? "auto" : "")};
 
   @media (max-width: 992px) {
     justify-content: flex-start;
@@ -55,6 +44,11 @@ export const ButtonContainer = styled.div`
 
   @media (max-width: 576px) {
     justify-content: flex-start;
+  }
+
+  @media (min-width: 576px) {
+    flex-wrap: nowrap;
+    overflow-x: auto;
   }
 `;
 
@@ -139,7 +133,7 @@ export const Column = styled.div<ColumnProps>`
   flex-direction: ${({ flexDirection }) => flexDirection};
   margin-left: ${({ marginLeft }) => marginLeft + `px`};
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  height: 64vh;
+  height: 60vh;
   min-width: 31%;
 
   @media (max-width: 576px) {
@@ -177,85 +171,6 @@ export const ProductHeading = styled.p`
   justify-content: space-between;
 `;
 
-export const ProductContentDiv = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  border-bottom: 1px solid #efefef;
-
-  &.topProducts {
-    padding: 5px 14px 5px 14px;
-  }
-
-  &.topPosts {
-    padding: 5px 14px 5px 14px;
-  }
-
-  &.topStories {
-    padding: 19px 0;
-  }
-
-  /* p {
-    font-size: 18px;
-    font-weight: 500;
-    line-height: 21px;
-    letter-spacing: 0em;
-    text-align: left;
-  } */
-`;
-
-export const ProductInnerContent = styled.div`
-  display: flex;
-  align-items: center;
-
-  span {
-    margin-left: 6px;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 14px;
-    letter-spacing: 0em;
-    text-align: left;
-    color: rgba(58, 58, 58, 1);
-  }
-`;
-
-export const WidthDiv = styled.div`
-  width: 50%;
-
-  p {
-    font-size: 14px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-`;
-
-export const NumberDiv = styled.div`
-  background-color: rgba(244, 240, 236, 1);
-  font-size: 0.75rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  color: #3a3a3a;
-  padding: 0.3rem 0;
-  white-space: nowrap;
-`;
-
-export const ProductDetailsDiv = styled.div`
-  p {
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 21px;
-    letter-spacing: 0em;
-    text-align: right;
-    font-weight: 500;
-  }
-
-  span {
-    font-size: 12px;
-  }
-`;
-
 export const TabButtonWrapper = styled.div`
   display: flex;
   align-items: center;
@@ -277,26 +192,137 @@ export const TabWrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-
   flex-wrap: nowrap;
-  overflow-x: auto;
-  margin-bottom: 15px;
-
-  &::-webkit-scrollbar {
-    height: 5px;
-    border-radius: 5px;
-    background-color: lightgray;
-  }
-
-  /* @media (max-width: 992px) {
-    justify-content: flex-start;
-  }
 
   @media (max-width: 768px) {
-    justify-content: flex-start;
+    overflow-x: auto;
+    margin-bottom: 15px;
+
+    &::-webkit-scrollbar {
+      height: 5px;
+      border-radius: 5px;
+      background-color: lightgray;
+    }
   }
 
   @media (max-width: 576px) {
-    justify-content: flex-start;
-  } */
+    overflow-x: auto;
+    margin-bottom: 15px;
+
+    &::-webkit-scrollbar {
+      height: 5px;
+      border-radius: 5px;
+      background-color: lightgray;
+    }
+  }
+`;
+
+export const MainProductDiv = styled.div`
+  display: flex;
+  align-items: center;
+  padding: 5px 0px 5px 15px;
+  border-bottom: 1px solid #efefef;
+
+  &.topProducts {
+    padding: 5px 0px 5px 15px;
+  }
+
+  &.topPosts {
+    padding: 5px 0px 5px 15px;
+  }
+
+  &.topStories {
+    padding: 17px 0;
+  }
+`;
+
+interface ScrollWrapperProps {
+  height?: boolean;
+}
+
+export const ScrollWrapper = styled.div<ScrollWrapperProps>`
+  max-height: ${({ height }) => (height ? `60vh` : "48vh")};
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    width: 1px;
+    background: #f1f1f1;
+  }
+`;
+
+interface ImageDivProps {
+  width?: boolean;
+}
+
+export const ImageDiv = styled.div<ImageDivProps>`
+  width: ${({ width }) => (width ? `7%` : "15%")};
+  margin-right: 2px;
+`;
+
+export const ProductNameDiv = styled.div<ImageDivProps>`
+  width: ${({ width }) => (width ? `100%` : "60%")};
+
+  @media (max-width: 768px) {
+    width: ${({ width }) => (width ? `60%` : "60%")};
+  }
+
+  @media (max-width: 576px) {
+    width: ${({ width }) => (width ? `60%` : "60%")};
+  }
+
+  span {
+    background-color: rgba(244, 240, 236, 1);
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding: 3px;
+    border-radius: 5px;
+    color: #3a3a3a;
+    white-space: nowrap;
+    margin-right: 5px;
+  }
+`;
+
+export const PriceDetailDiv = styled.div<ImageDivProps>`
+  width: ${({ width }) => (width ? `13%` : "17%")};
+
+  @media (max-width: 768px) {
+    width: ${({ width }) => (width ? `13%` : "20%")};
+  }
+
+  @media (max-width: 576px) {
+    width: ${({ width }) => (width ? `22%` : "20%")};
+  }
+
+  span {
+    font-size: 10px;
+  }
+`;
+
+export const ProductNameText = styled.p`
+  font-size: 12px;
+  line-height: 21px;
+  letter-spacing: 0em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+`;
+
+export const ProductTypeText = styled.p`
+  font-size: 10px;
+  line-height: 21px;
+  letter-spacing: 0em;
+`;
+
+export const SekText = styled.p`
+  font-size: 12px;
+  line-height: 21px;
+  letter-spacing: 0em;
+`;
+
+export const CvrPercentageText = styled.span`
+  font-size: 10px;
+  line-height: 21px;
+  letter-spacing: 0em;
 `;

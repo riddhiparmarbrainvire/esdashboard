@@ -39,7 +39,9 @@ const TopProducts = () => {
                   <ProductContent
                     topProductsData={topProductsData}
                     productTabHeading="Top Products"
-                    height={65}
+                    height={true}
+                    border={2}
+                    width={true}
                   />
                 </>
               )}
@@ -48,7 +50,8 @@ const TopProducts = () => {
                   <ProductContent
                     topProductsData={topPostsData}
                     productTabHeading="Top Posts"
-                    height={65}
+                    height={true}
+                    width={true}
                   />
                 </>
               )}
@@ -57,7 +60,8 @@ const TopProducts = () => {
                   <ProductContent
                     topProductsData={topStoresData}
                     productTabHeading="Top Stores"
-                    height={65}
+                    height={true}
+                    width={true}
                   />
                 </>
               )}

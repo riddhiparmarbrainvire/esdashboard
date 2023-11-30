@@ -1,3 +1,164 @@
+@font-face {
+  font-family: "StrawfordBlack";
+  src: url("../../public/font/Strawford-Black.otf") format("otf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "StrawfordBlackItalic";
+  src: url("../../public/font/Strawford-BlackItalic.otf") format("otf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "StrawfordBold";
+  src: url("../../public/font/Strawford-Bold.otf") format("otf");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "StrawfordBoldItalic";
+  src: url("../../public/font/Strawford-BoldItalic.otf") format("otf");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "StrawfordExtraLight";
+  src: url("../../public/font/Strawford-ExtraLight.otf") format("otf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "StrawfordExtraLightItalic";
+  src: url("../../public/font/Strawford-ExtraLightItalic.otf") format("otf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "StrawfordLight";
+  src: url("../../public/font/Strawford-Light.otf") format("otf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "StrawfordLightItalic";
+  src: url("../../public/font/Strawford-LightItalic.otf") format("otf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "StrawfordMedium";
+  src: url("../../public/font/Strawford-Medium.otf") format("otf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "StrawfordMediumItalic";
+  src: url("../../public/font/Strawford-MediumItalic.otf") format("otf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "StrawfordRegularItalic";
+  src: url("../../public/font/Strawford-Regular-Italic.ttf") format("ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "StrawfordBlackItalicregular";
+  src: url("../../public/font/strawford-regular-webfont.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "StrawfordBlackItalicRegular";
+  src: url("../../public/font/Strawford-Regular.otf") format("otf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "StrawfordBlackRegular";
+  src: url("../../public/font/Strawford-Regular.ttf") format("ttf");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "StrawfordBlackItalicRegularItalic";
+  src: url("../../public/font/Strawford-RegularItalic.otf") format("otf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "StrawfordThin";
+  src: url("../../public/font/Strawford-Thin.otf") format("otf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "StrawfordThinItalic";
+  src: url("../../public/font/Strawford-ThinItalic.otf") format("otf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "StrawfordThin\Italic";
+  src: url("../../public/font/Strawford\ Thin\ Italic.ttf") format("ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "StrawfordBlack";
+  src: url("../../public/font/Strawford\ Black.ttf") format("ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "StrawfordBold";
+  src: url("../../public/font/Strawford\ Bold.ttf") format("ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "StrawfordExtraLight";
+  src: url("../../public/font/Strawford\ ExtraLight.ttf") format("ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "StrawfordExtraLight\Italic";
+  src: url("../../public/font/Strawford\ ExtraLight\ Italic.ttf") format("ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "StrawfordBExtraLight\Italic";
+  src: url("../../public/font/Strawford\ ExtraLight\ Italic.ttf") format("ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
 :root {
   --max-width: 1100px;
   --border-radius: 12px;
@@ -93,18 +254,11 @@ body {
     )
     rgb(var(--background-start-rgb)); */
 
-  /* font-family: "Strawford", sans-serif; */
+  /* font-family: "StrawfordBold"; */
 }
 
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: white;
   }
-}
-
-@font-face {
-  font-family: "StrawfordRegular";
-  src: url("/fonts/strawford-regular-webfont.woff2") format("woff2");
-  font-weight: normal;
-  font-style: normal;
 }
