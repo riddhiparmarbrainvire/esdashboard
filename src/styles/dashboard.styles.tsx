@@ -23,11 +23,16 @@ export const MainDivWrapper = styled.div`
   height: 130vh;
 `;
 
-export const ButtonContainer = styled.div`
+interface ButtonContainerProps {
+  scroll?: boolean;
+}
+
+export const ButtonContainer = styled.div<ButtonContainerProps>`
   display: flex;
   align-items: center;
   justify-content: right;
   margin-bottom: 15px;
+  overflow-x: ${({ scroll }) => (scroll ? "auto" : "")};
 
   @media (max-width: 992px) {
     justify-content: flex-start;
@@ -41,17 +46,7 @@ export const ButtonContainer = styled.div`
     justify-content: flex-start;
   }
 
-  @media (min-width: 1200px) {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-  }
-
-  /* @media (min-width: 1449px) {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-  } */
-
-  @media (min-width: 1449px) and (max-width: 320px) {
+  @media (min-width: 576px) {
     flex-wrap: nowrap;
     overflow-x: auto;
   }
@@ -138,7 +133,7 @@ export const Column = styled.div<ColumnProps>`
   flex-direction: ${({ flexDirection }) => flexDirection};
   margin-left: ${({ marginLeft }) => marginLeft + `px`};
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  height: 64vh;
+  height: 60vh;
   min-width: 31%;
 
   @media (max-width: 576px) {
@@ -168,101 +163,12 @@ export const Column = styled.div<ColumnProps>`
 
 export const ProductHeading = styled.p`
   font-size: 22px;
-  padding: 24px 26px 20px 33px;
+  padding: 20px;
   line-height: 26.5px;
   border-bottom: 0.8px solid #efefef;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-family: var(--Strawford-Bold);
-`;
-
-export const ProductContentDiv = styled.div`
-  display: flex;
-  border-bottom: 1px solid #efefef;
-
-  &.topProducts {
-    padding: 5px 14px 5px 14px;
-  }
-
-  &.topPosts {
-    padding: 5px 14px 5px 14px;
-  }
-
-  &.topStories {
-    padding: 19px 0;
-  }
-`;
-
-export const ProductInnerContent = styled.span`
-  display: flex;
-  align-items: center;
-  margin-top: 4%;
-
-  span {
-    margin-left: 6px;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 14px;
-    letter-spacing: 0em;
-    text-align: left;
-    color: rgba(58, 58, 58, 1);
-    font-family: var(--Strawford-Bold);
-  }
-
-  &.topStories {
-    span {
-      display: none;
-    }
-  }
-`;
-
-export const ImageContentDiv = styled.div`
-  display: flex;
-`;
-
-export const FlexDiv = styled.div`
-  display: flex;
-`;
-
-export const WidthDiv = styled.div`
-  width: 50%;
-
-  p {
-    font-size: 14px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    /* font-family: var(--Strawford-Bold); */
-    font-family: "StrawfordBold";
-  }
-`;
-
-export const NumberDiv = styled.div`
-  background-color: rgba(244, 240, 236, 1);
-  font-size: 0.75rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  color: #3a3a3a;
-  padding: 1% 1%;
-  white-space: nowrap;
-`;
-
-export const ProductDetailsDiv = styled.div`
-  p {
-    font-size: 12px;
-    line-height: 21px;
-    letter-spacing: 0em;
-    text-align: right;
-    font-family: "StrawfordBoldItalic";
-    /* font-family: var(--Strawford-Bold); */
-    /* font-weight: bold; */
-  }
-
-  span {
-    font-size: 10px;
-  }
 `;
 
 export const TabButtonWrapper = styled.div`
@@ -286,37 +192,56 @@ export const TabWrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-
   flex-wrap: nowrap;
-  overflow-x: auto;
-  margin-bottom: 15px;
-
-  &::-webkit-scrollbar {
-    height: 5px;
-    border-radius: 5px;
-    background-color: lightgray;
-  }
-
-  /* @media (max-width: 992px) {
-    justify-content: flex-start;
-  }
 
   @media (max-width: 768px) {
-    justify-content: flex-start;
+    overflow-x: auto;
+    margin-bottom: 15px;
+
+    &::-webkit-scrollbar {
+      height: 5px;
+      border-radius: 5px;
+      background-color: lightgray;
+    }
   }
 
   @media (max-width: 576px) {
-    justify-content: flex-start;
-  } */
+    overflow-x: auto;
+    margin-bottom: 15px;
+
+    &::-webkit-scrollbar {
+      height: 5px;
+      border-radius: 5px;
+      background-color: lightgray;
+    }
+  }
 `;
 
-// product css new
-interface MainContentWrapperProps {
-  height?: any;
+export const MainProductDiv = styled.div`
+  display: flex;
+  align-items: center;
+  padding: 5px 0px 5px 15px;
+  border-bottom: 1px solid #efefef;
+
+  &.topProducts {
+    padding: 5px 0px 5px 15px;
+  }
+
+  &.topPosts {
+    padding: 5px 0px 5px 15px;
+  }
+
+  &.topStories {
+    padding: 17px 0;
+  }
+`;
+
+interface ScrollWrapperProps {
+  height?: boolean;
 }
 
-export const MainContentWrapper = styled.div<MainContentWrapperProps>`
-  max-height: ${({ height }) => (height ? height + `vh` : "51vh")};
+export const ScrollWrapper = styled.div<ScrollWrapperProps>`
+  max-height: ${({ height }) => (height ? `60vh` : "48vh")};
   overflow-y: scroll;
 
   &::-webkit-scrollbar {
@@ -325,80 +250,79 @@ export const MainContentWrapper = styled.div<MainContentWrapperProps>`
   }
 `;
 
-// export const ProductContainer = styled.div`
-//   /* border: 2px dotted green; */
-// `;
+interface ImageDivProps {
+  width?: boolean;
+}
 
-// export const ImageAndProductNameDiv = styled.div`
-//   display: flex;
-//   align-items: center;
-// `;
+export const ImageDiv = styled.div<ImageDivProps>`
+  width: ${({ width }) => (width ? `7%` : "15%")};
+  margin-right: 2px;
+`;
 
-// export const ImageDiv = styled.div`
-//   margin-right: 10px;
-// `;
+export const ProductNameDiv = styled.div<ImageDivProps>`
+  width: ${({ width }) => (width ? `100%` : "60%")};
 
-// export const AboutProduct = styled.div`
-//   span {
-//     font-family: Strawford;
-//     font-size: 12px;
-//     font-weight: 400;
-//     line-height: 14px;
-//     letter-spacing: 0em;
-//     text-align: left;
-//   }
-// `;
+  @media (max-width: 768px) {
+    width: ${({ width }) => (width ? `60%` : "60%")};
+  }
 
-// export const PercentageDiv = styled.div`
-//   display: flex;
-//   align-items: center;
+  @media (max-width: 576px) {
+    width: ${({ width }) => (width ? `60%` : "60%")};
+  }
 
-//   span {
-//     background: rgba(244, 240, 236, 1);
-//     border-radius: 5px;
-//     padding: 3px;
-//     margin-right: 6px;
-//   }
-// `;
+  span {
+    background-color: rgba(244, 240, 236, 1);
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding: 3px;
+    border-radius: 5px;
+    color: #3a3a3a;
+    white-space: nowrap;
+    margin-right: 5px;
+  }
+`;
 
-// export const PriceDetails = styled.div`
-//   p {
-//     font-family: Strawford;
-//     font-size: 14px;
-//     font-weight: 500;
-//     line-height: 21px;
-//     letter-spacing: 0em;
-//     text-align: left;
-//   }
+export const PriceDetailDiv = styled.div<ImageDivProps>`
+  width: ${({ width }) => (width ? `13%` : "17%")};
 
-//   span {
-//     font-family: Strawford;
-//     font-size: 12px;
-//     font-weight: 400;
-//     line-height: 14px;
-//     letter-spacing: 0em;
-//     text-align: left;
-//   }
-// `;
+  @media (max-width: 768px) {
+    width: ${({ width }) => (width ? `13%` : "20%")};
+  }
 
-// export const ProductDetailsDiv = styled.div`
-//   width: 50%;
+  @media (max-width: 576px) {
+    width: ${({ width }) => (width ? `22%` : "20%")};
+  }
 
-//   p {
-//     font-family: Strawford;
-//     font-size: 14px;
-//     font-weight: 500;
-//     line-height: 21px;
-//     letter-spacing: 0em;
-//     text-align: left;
-//   }
-// `;
+  span {
+    font-size: 10px;
+  }
+`;
 
-// export const FlexWrapperDiv = styled.div`
-//   display: flex;
-//   align-items: center;
-//   justify-content: space-between;
-//   padding: 5px 20px 5px 20px;
-//   border-bottom: 1px solid #efefef;
-// `;
-// product css end
+export const ProductNameText = styled.p`
+  font-size: 12px;
+  line-height: 21px;
+  letter-spacing: 0em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+`;
+
+export const ProductTypeText = styled.p`
+  font-size: 10px;
+  line-height: 21px;
+  letter-spacing: 0em;
+`;
+
+export const SekText = styled.p`
+  font-size: 12px;
+  line-height: 21px;
+  letter-spacing: 0em;
+`;
+
+export const CvrPercentageText = styled.span`
+  font-size: 10px;
+  line-height: 21px;
+  letter-spacing: 0em;
+`;

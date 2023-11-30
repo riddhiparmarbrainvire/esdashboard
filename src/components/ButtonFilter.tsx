@@ -2,19 +2,9 @@ import React, { useState } from "react";
 import SingleButton from "./SingleButton";
 import DateInput from "./DateInput";
 import { ButtonContainer } from "@/styles/dashboard.styles";
+import { useRouter } from "next/router";
 
 const ButtonFilter = () => {
-  // const [yesterdaysSelectedDate, setYesterdaysSelectedDate] =
-  //   useState<Date | null>(null);
-  // const [startWeekDate, setStartWeekDate] = useState<Date | null>(null);
-  // const [endWeekDate, setEndWeekDate] = useState<Date | null>(null);
-  // const [startLastWeekDate, setStartLastWeekDate] = useState<Date | null>(null);
-  // const [endLastWeekDate, setEndLastWeekDate] = useState<Date | null>(null);
-  // const [startLastWMonthDate, setStartLastMonthDate] = useState<Date | null>(
-  //   null
-  // );
-  // const [endLastMonthDate, setEndLastMonthDate] = useState<Date | null>(null);
-
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const [selectedDateRange, setSelectedDateRange] = useState<{
     start: Date | null;
@@ -22,6 +12,9 @@ const ButtonFilter = () => {
   }>({ start: null, end: null });
 
   const [option, setOption] = useState<string | null>(null);
+
+  const router = useRouter();
+  console.log(router, "ROUTER");
 
   const handleButtonClick = (option: string) => {
     const currentDate = new Date();
@@ -86,28 +79,55 @@ const ButtonFilter = () => {
   };
 
   return (
-    <ButtonContainer>
-      <SingleButton
-        text="This week"
-        onClick={() => handleButtonClick("thisWeek")}
-      />
-      <SingleButton
-        text="Yesterday"
-        onClick={() => handleButtonClick("yesterday")}
-      />
-      <SingleButton
-        text="Last week"
-        onClick={() => handleButtonClick("lastWeek")}
-      />
-      <SingleButton
-        text="Last month"
-        onClick={() => handleButtonClick("lastMonth")}
-      />
-      <DateInput
-        selectedDateRange={selectedDateRange}
-        placeholder="Select Date"
-      />
-    </ButtonContainer>
+    <>
+      {router.route === "/" ? (
+        <ButtonContainer scroll={true}>
+          <SingleButton
+            text="This week"
+            onClick={() => handleButtonClick("thisWeek")}
+          />
+          <SingleButton
+            text="Yesterday"
+            onClick={() => handleButtonClick("yesterday")}
+          />
+          <SingleButton
+            text="Last week"
+            onClick={() => handleButtonClick("lastWeek")}
+          />
+          <SingleButton
+            text="Last month"
+            onClick={() => handleButtonClick("lastMonth")}
+          />
+          <DateInput
+            selectedDateRange={selectedDateRange}
+            placeholder="Select Date"
+          />
+        </ButtonContainer>
+      ) : (
+        <ButtonContainer>
+          <SingleButton
+            text="This week"
+            onClick={() => handleButtonClick("thisWeek")}
+          />
+          <SingleButton
+            text="Yesterday"
+            onClick={() => handleButtonClick("yesterday")}
+          />
+          <SingleButton
+            text="Last week"
+            onClick={() => handleButtonClick("lastWeek")}
+          />
+          <SingleButton
+            text="Last month"
+            onClick={() => handleButtonClick("lastMonth")}
+          />
+          <DateInput
+            selectedDateRange={selectedDateRange}
+            placeholder="Select Date"
+          />
+        </ButtonContainer>
+      )}
+    </>
   );
 };
 
