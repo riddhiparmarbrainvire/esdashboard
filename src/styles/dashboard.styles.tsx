@@ -20,7 +20,7 @@ export const MainDivWrapper = styled.div`
   margin-left: auto;
   margin-right: auto;
   width: 80%;
-  height: 130vh;
+  height: 145vh;
 `;
 
 interface ButtonContainerProps {
@@ -81,7 +81,8 @@ export const DateInputField = styled(DatePicker)`
   padding: 10px;
 
   &:focus {
-    border: none;
+    border-radius: 50px;
+    border: 1px solid #efefef;
     outline: none;
     opacity: 0.9;
     transform: scale(0.98);
@@ -93,9 +94,28 @@ export const DashboardHeader = styled.div`
 `;
 
 export const GraphWrapper = styled.div`
-  height: 220px;
+  height: auto;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   margin-bottom: 18px;
+  border-radius: 5px;
+`;
+
+export const GraphHeading = styled.div`
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 26px;
+  letter-spacing: 0em;
+  text-align: left;
+  padding: 2% 4% 4% 4%;
+`;
+
+export const GraphData = styled.div`
+  padding: 4% 4% 2% 4%;
+  font-size: 42px;
+  font-weight: 500;
+  line-height: 50px;
+  letter-spacing: 0em;
+  text-align: left;
 `;
 
 export const Columns = styled.div`

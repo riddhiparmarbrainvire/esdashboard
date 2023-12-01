@@ -4,7 +4,7 @@ import DateInput from "./DateInput";
 import { ButtonContainer } from "@/styles/dashboard.styles";
 import { useRouter } from "next/router";
 
-const ButtonFilter = () => {
+const ButtonFilter = ({ sendDataToB }: any) => {
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const [selectedDateRange, setSelectedDateRange] = useState<{
     start: Date | null;
@@ -14,7 +14,6 @@ const ButtonFilter = () => {
   const [option, setOption] = useState<string | null>(null);
 
   const router = useRouter();
-  console.log(router, "ROUTER");
 
   const handleButtonClick = (option: string) => {
     const currentDate = new Date();
@@ -27,6 +26,7 @@ const ButtonFilter = () => {
           start: yesterday,
           end: yesterday,
         });
+        sendDataToB({ start: yesterday, end: yesterday });
         setOption(option);
         break;
       case "thisWeek":
@@ -37,6 +37,7 @@ const ButtonFilter = () => {
         endOfWeek.setDate(currentDate.getDate() + (6 - currentDate.getDay()));
 
         setSelectedDateRange({ start: startOfWeek, end: endOfWeek });
+        sendDataToB({ start: startOfWeek, end: endOfWeek });
         setOption(option);
         break;
       case "lastWeek":
@@ -52,6 +53,7 @@ const ButtonFilter = () => {
           start: startOfLastWeek,
           end: endOfLastWeek,
         });
+        sendDataToB({ start: startOfLastWeek, end: endOfLastWeek });
         setOption(option);
         break;
       case "lastMonth":
@@ -71,6 +73,7 @@ const ButtonFilter = () => {
           start: firstDayOfLastMonth,
           end: lastDayOfLastMonth,
         });
+        sendDataToB({ start: firstDayOfLastMonth, end: lastDayOfLastMonth });
         setOption(option);
         break;
       default:
