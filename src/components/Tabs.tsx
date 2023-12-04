@@ -35,9 +35,17 @@ const TabButtonWrapper = styled.div`
   padding-bottom: 12px;
 `;
 
-const ArrowDiv = styled.div`
+interface ArrowDivProps {
+  screen?: boolean;
+}
+
+const ArrowDiv = styled.div<ArrowDivProps>`
   padding-left: 20px;
   padding-right: 30px;
+
+  @media (max-width: 576px) {
+    display: none;
+  }
 `;
 
 type TabsProps = {
@@ -49,11 +57,6 @@ type TabsProps = {
 const Tabs: React.FC<TabsProps> = ({ tabs, defaultTab, children }) => {
   const [activeTab, setActiveTab] = useState(defaultTab);
 
-  const handleTabClick = (tab: string) => {
-    console.log("Clicked tab:", tab);
-    setActiveTab(tab);
-  };
-
   return (
     <>
       <TabWrapper>
@@ -63,15 +66,21 @@ const Tabs: React.FC<TabsProps> = ({ tabs, defaultTab, children }) => {
               <SlArrowLeft />
             </Link>
           </ArrowDiv>
-          {tabs.map((tab) => (
-            <TabButton
-              key={tab}
-              isActive={activeTab === tab}
-              onClick={() => handleTabClick(tab)}
-            >
-              {tab}
+          <Link href={"/topProducts"}>
+            <TabButton isActive={activeTab === "Top Products"}>
+              Top Products
             </TabButton>
-          ))}
+          </Link>
+          <Link href={"/topPosts"}>
+            <TabButton isActive={activeTab === "Top Posts"}>
+              Top Posts
+            </TabButton>
+          </Link>
+          <Link href={"./topStores"}>
+            <TabButton isActive={activeTab === "Top Stores"}>
+              Top Stores
+            </TabButton>
+          </Link>
         </TabButtonWrapper>
 
         <ButtonFilter />
