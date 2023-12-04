@@ -91,6 +91,10 @@ export const DateInputField = styled(DatePicker)`
 
 export const DashboardHeader = styled.div`
   height: 70px;
+
+  @media (max-width: 576px) {
+    display: none;
+  }
 `;
 
 export const GraphWrapper = styled.div`
@@ -173,6 +177,7 @@ export const Column = styled.div<ColumnProps>`
   @media (max-width: 992px) {
     flex: ${({ sizeLg }) => sizeLg};
     border-radius: 0px;
+    margin-left: 0;
   }
 
   @media (max-width: 1200px) {
@@ -181,7 +186,11 @@ export const Column = styled.div<ColumnProps>`
   }
 `;
 
-export const ProductHeading = styled.p`
+interface ProductHeadingProps {
+  screen?: boolean;
+}
+
+export const ProductHeading = styled.p<ProductHeadingProps>`
   font-size: 22px;
   padding: 20px;
   line-height: 26.5px;
@@ -189,6 +198,18 @@ export const ProductHeading = styled.p`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @media (max-width: 576px) {
+    display: ${({ screen }) => (screen ? `none` : "block")};
+    padding: 20px 10%;
+  }
+`;
+
+export const ForWebScreen = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #efefef;
 `;
 
 export const TabButtonWrapper = styled.div`
@@ -213,6 +234,12 @@ export const TabWrapper = styled.div`
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: nowrap;
+
+  &::-webkit-scrollbar {
+    height: 1px;
+    border-radius: 5px;
+    background-color: lightgray;
+  }
 
   @media (max-width: 768px) {
     overflow-x: auto;
@@ -251,7 +278,7 @@ export const MainProductDiv = styled.div`
     padding: 5px 0px 5px 15px;
   }
 
-  &.topStories {
+  &.topStores {
     padding: 17px 0;
   }
 `;
@@ -268,6 +295,15 @@ export const ScrollWrapper = styled.div<ScrollWrapperProps>`
     width: 1px;
     background: #f1f1f1;
   }
+
+  @media (max-width: 576px) {
+    max-height: ${({ height }) => (height ? `80vh` : "48vh")};
+
+    &::-webkit-scrollbar {
+      width: 1px;
+      background: #f1f1f1;
+    }
+  }
 `;
 
 interface ImageDivProps {
@@ -277,6 +313,10 @@ interface ImageDivProps {
 export const ImageDiv = styled.div<ImageDivProps>`
   width: ${({ width }) => (width ? `7%` : "15%")};
   margin-right: 2px;
+
+  @media (max-width: 576px) {
+    width: 40px;
+  }
 `;
 
 export const ProductNameDiv = styled.div<ImageDivProps>`

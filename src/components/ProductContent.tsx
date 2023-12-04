@@ -9,6 +9,7 @@ import {
   ProductNameText,
   ProductTypeText,
   ScrollWrapper,
+  ForWebScreen,
 } from "@/styles/dashboard.styles";
 import Image from "next/image";
 import React from "react";
@@ -24,6 +25,8 @@ interface MyComponentProps {
   height?: any;
   border?: any;
   width?: boolean;
+  screen?: boolean;
+  flex?: any;
 }
 
 interface Product {
@@ -39,22 +42,26 @@ interface Product {
 const ProductContent: React.FC<MyComponentProps> = (props) => {
   return (
     <>
-      <ProductHeading>
-        {props.productTabHeading}
-        <Link
-          href={
-            props.productTabHeading === "Top Products"
-              ? "/topProducts"
-              : props.productTabHeading === "Top Posts"
-              ? "/topProducts"
-              : props.productTabHeading === "Top Stores"
-              ? "/topProducts"
-              : ""
-          }
-        >
-          {props.icon}
-        </Link>
-      </ProductHeading>
+      <ForWebScreen>
+        <ProductHeading screen={props.screen}>
+          {props.productTabHeading}
+        </ProductHeading>
+        <div style={{ marginRight: "10%" }}>
+          <Link
+            href={
+              props.productTabHeading === "Top Products"
+                ? "/topProducts"
+                : props.productTabHeading === "Top Posts"
+                ? "/topPosts"
+                : props.productTabHeading === "Top Stores"
+                ? "/topStores"
+                : ""
+            }
+          >
+            {props.icon}
+          </Link>
+        </div>
+      </ForWebScreen>
 
       <ScrollWrapper height={props.height}>
         {props.topProductsData.map((topProduct) => (
@@ -66,7 +73,7 @@ const ProductContent: React.FC<MyComponentProps> = (props) => {
                 : props.productTabHeading === "Top Posts"
                 ? "topPosts"
                 : props.productTabHeading === "Top Stores"
-                ? " topStories"
+                ? " topStores"
                 : ""
             }
           >

@@ -28,7 +28,6 @@ ChartJS.register(
 );
 
 const Graph = ({ receivedData }: any) => {
-  console.log(receivedData, receivedData, "receivedDatareceivedData");
   const options = {
     scales: { x: { display: false }, y: { display: false } },
     responsive: true,
@@ -64,7 +63,6 @@ const Graph = ({ receivedData }: any) => {
 
     const formattedStartDate = start ? formatSingleDate(start) : null;
     const formattedEndDate = end ? formatSingleDate(end) : null;
-    console.log(formattedStartDate, formattedEndDate, "formated");
     return { formattedStartDate, formattedEndDate };
   };
 
@@ -74,8 +72,6 @@ const Graph = ({ receivedData }: any) => {
     x: data.date,
     y: data.earnings,
   }));
-
-  console.log(transformedData, "transformedData");
 
   const filteredData = receivedData
     ? transformedData.filter((d) => d.x === receivedData)

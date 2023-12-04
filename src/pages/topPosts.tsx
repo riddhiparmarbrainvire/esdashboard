@@ -25,15 +25,15 @@ interface Product {
   cvrPercent?: number;
 }
 
-const TopProducts = () => {
+const TopPosts = () => {
   const tabs = ["Top Products", "Top Posts", "Top Stores"];
 
   return (
     <>
       <Header />
-      <MobileNavbar mobileNavBarHeading={"Top Products"} />
+      <MobileNavbar mobileNavBarHeading={"Top Posts"} />
       <DetailPageWrapper>
-        <Tabs tabs={tabs} defaultTab={"Top Products"}>
+        <Tabs tabs={tabs} defaultTab={"Top Posts"}>
           {(activeTab) => (
             <div>
               {activeTab === "Top Products" && (
@@ -78,4 +78,4 @@ const TopProducts = () => {
   );
 };
 
-export default TopProducts;
+export default TopPosts;
